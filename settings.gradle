@@ -1,0 +1,5 @@
+rootProject.name = 'elastic-task'
+
+include 'elastic-task-admin'
+include 'elastic-task-executor'
+include 'elastic-task-core'

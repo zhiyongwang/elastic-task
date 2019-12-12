@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+dependencies {
+    compile "com.xuxueli:xxl-rpc-core:${xxlRpcVersion}"
+    compile "org.codehaus.groovy:groovy:${groovyVersion}"
+    compile "org.apache.commons:commons-exec:${commonsExecVersion}"
+
+    compileOnly "org.springframework:spring-context:${springVersion}"
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

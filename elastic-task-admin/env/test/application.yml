@@ -1,0 +1,73 @@
+### web
+server:
+  port: 8080
+  servlet:
+    context-path: /xxl-job-admin
+  jetty:
+    max-http-post-size:
+### resources
+spring:
+  profiles:
+    active:
+  resources:
+    static-locations: classpath:/static/
+  mvc:
+    static-path-pattern: /static/**
+  freemarker:
+    templateLoaderPath: classpath:/templates/
+    suffix: .ftl
+    charset: UTF-8
+    request-context-attribute: request
+    settings:
+      number_format: 0.##########
+
+  # 数据源配置
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/elastic-task?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT
+    username: root
+    password: root
+    # 初始连接数
+    initial-size: 5
+    # 最大连接池数量
+    max-active: 10
+    # 最小连接池数量
+    min-idle: 5
+    # 配置获取连接等待超时的时间
+    max-wait: 60000
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    pool-prepared-statements: true
+    max-pool-prepared-statement-per-connection-size: 20
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    min-evictable-idle-time-millis: 300000
+    validation-query: SELECT 1 FROM DUAL
+  ### email
+  mail:
+    host: smtp.qq.com
+    port: 25
+    username: xxx@qq.com
+    password: xxx
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls: true
+          required: true
+
+### mybatis
+mybatis:
+  mapper-locations: classpath:/mybatis-mapper/*Mapper.xml
+
+### xxl-job
+xxl:
+  job:
+    login:
+      username: admin
+      password: 123456
+    ### access token
+    accessToken:
+    ### xxl-job, i18n (default empty as chinese, "en" as english)
+    i18n:

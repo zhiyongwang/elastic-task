@@ -1,0 +1,60 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+allprojects {
+    repositories {
+        mavenLocal()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public'
+        }
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+
+subprojects {
+
+    apply plugin: 'groovy'
+
+    sourceSets {
+        main {
+            groovy {
+                srcDirs = ['src/main']
+            }
+        }
+
+        test {
+            groovy {
+                srcDirs = ['src/test']
+            }
+        }
+    }
+    
+
+   
+    ext {
+        springBootVersion = '2.1.3.RELEASE'
+        xxlRpcVersion = '1.4.0'
+        mybatisSpringBootStarterVersion = '1.3.4'
+        mysqlConnectorJavaVersion = '5.1.47'
+        springVersion = '4.3.23.RELEASE'
+        freemarkerVersion = '2.3.28'
+        slf4jApiVersion = '1.7.26'
+        junitVersion = '4.12'
+        commonsExecVersion = '1.3'
+        groovyVersion = '2.5.6'
+        quartzVersion = '2.3.1'
+    }
+
+    dependencies {
+
+        compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.7'
+
+        testImplementation 'org.testng:testng:6.9.10',
+                'org.mockito:mockito-all:1.10.19',
+                'org.spockframework:spock-core:1.0-groovy-2.4'
+    }
+}

@@ -1,0 +1,9 @@
+out/
+build/
+.gradle/
+.idea/
+*.iml
+env/prod/
+env/test/
+src/main/webapp/
+src/test/resources/
