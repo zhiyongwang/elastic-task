@@ -7,3 +7,6 @@ env/prod/
 env/test/
 src/main/webapp/
 src/test/resources/
+gradlew
+gradlew.bat
+gradle/
